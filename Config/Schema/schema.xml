@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!--
+  While this schema mostly works with database prefixes, foreign key constraints
+  must be specified in raw SQL, which needs the prefixed table name.
+-->
+<schema version="0.3">
+  <table name="cadre_env_sources">
+    <field name="id" type="I">
+      <key />
+      <autoincrement />
+    </field>
+    <field name="org_identity_source_id" type="I">
+      <constraint>REFERENCES cm_org_identity_sources(id)</constraint>
+    </field>
+    <field name="duplicate_mode" type="C" size="2" />
+    <field name="redirect_on_duplicate" type="C" size="1024" />
+    <field name="env_name_honorific" type="C" size="80" />
+    <field name="env_name_given" type="C" size="80" />
+    <field name="env_name_middle" type="C" size="80" />
+    <field name="env_name_family" type="C" size="80" />
+    <field name="env_name_suffix" type="C" size="80" />
+    <field name="env_affiliation" type="C" size="80" />
+    <field name="env_affiliation_scoped" type="C" size="80" />
+    <field name="env_title" type="C" size="80" />
+    <field name="env_o" type="C" size="80" />
+    <field name="env_ou" type="C" size="80" />
+    <field name="env_mail" type="C" size="80" />
+    <field name="env_telephone_number" type="C" size="80" />
+    <field name="env_address_street" type="C" size="80" />
+    <field name="env_address_locality" type="C" size="80" />
+    <field name="env_address_state" type="C" size="80" />
+    <field name="env_address_postalcode" type="C" size="80" />
+    <field name="env_address_country" type="C" size="80" />
+    <field name="env_identifier_eppn" type="C" size="80" />
+    <field name="env_identifier_eppn_login" type="L" />
+    <field name="env_identifier_eptid" type="C" size="256" />
+    <field name="env_identifier_eptid_login" type="L" />
+    <field name="env_identifier_epuid" type="C" size="80" />
+    <field name="env_identifier_epuid_login" type="L" />
+    <field name="env_identifier_oidcsub" type="C" size="256" />
+    <field name="env_identifier_oidcsub_login" type="L" />
+    <field name="env_identifier_orcid" type="C" size="80" />
+    <field name="env_identifier_orcid_login" type="L" />
+    <field name="env_identifier_samlpairwiseid" type="C" size="256" />
+    <field name="env_identifier_samlpairwiseid_login" type="L" />
+    <field name="env_identifier_samlsubjectid" type="C" size="256" />
+    <field name="env_identifier_samlsubjectid_login" type="L" />
+    <field name="env_identifier_sorid" type="C" size="1024" />
+    <field name="env_identifier_sorid_login" type="L" />
+    <field name="env_identifier_network" type="C" size="80" />
+    <field name="env_identifier_network_login" type="L" />
+    <field name="created" type="T" />
+    <field name="modified" type="T" />
+    
+    <index name="env_sources_i1">
+      <col>org_identity_source_id</col>
+      <unique />
+    </index>
+  </table>
+</schema>
